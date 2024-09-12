@@ -20,11 +20,11 @@ public class Spawner : MonoBehaviour
         {
             yield return wait;
 
-            GetSpawnPoint().Spawn();
+            GetBarrak().Spawn();
         }
     }
 
-    private Barrak GetSpawnPoint()
+    private Barrak GetBarrak()
     {
         return _barrak[Random.Range(0, _barrak.Length)];
     }
