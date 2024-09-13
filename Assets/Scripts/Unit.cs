@@ -3,8 +3,8 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     [SerializeField] private float _speed = 1f;
-
-    private Vector3 _directional;
+    
+    private Target _target;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,12 +14,11 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_directional * Time.deltaTime,Space.World);
+        transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _speed * Time.deltaTime);
     }
 
-    public void Init(Vector3 rotation, Vector3 directional)
+    public void Init(Target target)
     {
-        transform.rotation = Quaternion.Euler(rotation);
-        _directional = directional;
+        _target = target;
     }
 }
