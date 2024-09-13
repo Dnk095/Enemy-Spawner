@@ -7,7 +7,6 @@ public class Target : MonoBehaviour
 
     private int _currentPoint = 0;
 
-
     private void Update()
     {
         if (transform.position == _points[_currentPoint].position)
