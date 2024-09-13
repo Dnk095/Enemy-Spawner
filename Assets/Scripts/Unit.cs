@@ -4,6 +4,8 @@ public class Unit : MonoBehaviour
 {
     [SerializeField] private float _speed = 1f;
 
+    private Vector3 _directional;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Cleaner cleaner))
@@ -12,11 +14,12 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_speed * Time.deltaTime * Vector3.forward);
+        transform.Translate(_directional * Time.deltaTime,Space.World);
     }
 
-    public void Init(Vector3 rotation)
+    public void Init(Vector3 rotation, Vector3 directional)
     {
         transform.rotation = Quaternion.Euler(rotation);
+        _directional = directional;
     }
 }

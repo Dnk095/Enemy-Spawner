@@ -4,6 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Barrak[] _barrak;
+    [SerializeField] float delay = 2f;
 
     private void Start()
     {
@@ -12,19 +13,17 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator CreateUnit()
     {
-        float delay = 2f;
-
         WaitForSeconds wait = new(delay);
 
         while (enabled)
         {
             yield return wait;
 
-            GetBarrak().Spawn();
+            GetRandomBarrak().Spawn();
         }
     }
 
-    private Barrak GetBarrak()
+    private Barrak GetRandomBarrak()
     {
         return _barrak[Random.Range(0, _barrak.Length)];
     }
