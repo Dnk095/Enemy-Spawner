@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -6,7 +5,7 @@ public class Target : MonoBehaviour
     [SerializeField] private float _speed = 10f;
     [SerializeField] private Transform[] _points;
 
-    private int _currentPoint;
+    private int _currentPoint = 0;
 
 
     private void Update()
