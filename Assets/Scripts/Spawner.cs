@@ -4,7 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Barrak[] _barrak;
-    [SerializeField] float delay = 2f;
+    [SerializeField] private float delay = 2f;
 
     private void Start()
     {
